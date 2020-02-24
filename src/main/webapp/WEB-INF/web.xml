@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>Archetype Created Web Application</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+
+        <!-- 업로드 설정 -->
+        <multipart-config>
+            <!-- 개별 업로드 최대 크기 -->
+            <max-file-size>209715200</max-file-size>
+            <!-- 업로드 총 최대크기 -->
+            <max-request-size>209715200</max-request-size>
+            <!-- 업로드시 임시적인 위치에 저장하지 않고 메모리에 저장하는 최대 크기 -->
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.form</url-pattern>
+    </servlet-mapping>
+</web-app>
