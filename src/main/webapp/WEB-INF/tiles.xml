@@ -8,7 +8,6 @@
     <!-- 변하지 않는 페이지 레이아웃은 템플릿 형태로 정의 -->
     <definition name="base" template="/WEB-INF/tiles/template.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
-        <put-attribute name="modal" value="/WEB-INF/tiles/modal.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
     </definition>
  
@@ -16,27 +15,13 @@
  	<!-- 메인영역을 제외한 나머지 영역은 위에서 정의한 템플릿을 참조함 -->
     <definition name="*.tiles" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
-        <put-attribute name="scripts" value="/WEB-INF/views/indexscripts.jsp" />
-    </definition>
- 
-     <definition name="join/*.tiles" extends="base">
-         <put-attribute name="body" value="/WEB-INF/views/join/{1}.jsp" />
-         <put-attribute name="scripts" value="/WEB-INF/views/join/joinscripts.jsp" />
-     </definition>
-    
-    <definition name="board/*.tiles" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/board/{1}.jsp" />
-        <put-attribute name="scripts" value="/WEB-INF/views/board/boardscripts.jsp" />
+        <!--<put-attribute name="scripts" value="/WEB-INF/views/indexscripts.jsp" />-->
     </definition>
 
-    <definition name="pds/*.tiles" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/pds/{1}.jsp" />
-        <put-attribute name="scripts" value="/WEB-INF/views/pds/pdsscripts.jsp" />
+    <definition name="join/*.tiles" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/join/{1}.jsp" />
+        <!--<put-attribute name="scripts" value="/WEB-INF/views/join/joinscripts.jsp" />-->
     </definition>
 
-    <definition name="gallery/*.tiles" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/gallery/{1}.jsp" />
-        <put-attribute name="scripts" value="/WEB-INF/views/gallery/galleryscripts.jsp" />
-    </definition>
     
 </tiles-definitions>
