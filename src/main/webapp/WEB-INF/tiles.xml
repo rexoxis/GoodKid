@@ -15,7 +15,7 @@
  	<!-- 메인영역을 제외한 나머지 영역은 위에서 정의한 템플릿을 참조함 -->
     <definition name="*.tiles" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
-        <!--<put-attribute name="scripts" value="/WEB-INF/views/indexscripts.jsp" />-->
+        <put-attribute name="scripts" value="/WEB-INF/views/indexScripts.jsp" />
     </definition>
 
     <definition name="join/*.tiles" extends="base">
@@ -23,5 +23,4 @@
         <!--<put-attribute name="scripts" value="/WEB-INF/views/join/joinscripts.jsp" />-->
     </definition>
 
-    
 </tiles-definitions>

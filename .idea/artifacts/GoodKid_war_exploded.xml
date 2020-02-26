@@ -28,6 +28,7 @@
           <element id="library" level="project" name="Maven: com.oracle.ojdbc:simplefan:19.3.0.0" />
           <element id="library" level="project" name="Maven: com.oracle.ojdbc:ons:19.3.0.0" />
           <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.5.4" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-servlet:3.0.8" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-core:3.0.8" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-api:3.0.8" />

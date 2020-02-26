@@ -1,16 +1,7 @@
 <%@ page pageEncoding="UTF-8" %>
-<%-- 절대경로 설정 --%>
-<% String baseurl = "/ttproMVC"; %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%
-    String uid = (String)session.getAttribute("userid");
-
-    boolean islogin = false;
-
-    if (session.getAttribute("userid") != null) {
-        islogin = true;
-    }
-%>
+<c:set var="uid" value="${userid}" scope="session"/>
 
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
@@ -75,21 +66,24 @@
 <header>
     <div>
         <h2 style="text-align: center; margin: 30px 0; font-size: 35px">
-            <a href="<%=baseurl%>/index.jsp" style="color: #000000; text-decoration-line:none">착한아이</a></h2>
+            <a href="/" style="color: #000000; text-decoration-line:none">착한아이</a></h2>
         <div class="text-right">
-            <% if (islogin) {%>
-            <button type="button" class="btn btn-primary" id="logoutbtn">로그아웃</button>
-            <% } else {%>
-            <button type="button" class="btn btn-primary" id="mloginbtn">로그인</button>
-            <button type="button" class="btn btn-danger" id="joinbtn">회원가입</button>
-            <% } %>
+            <c:choose>
+                <c:when test="${userid ne null}">
+                  <button type="button" class="btn btn-primary" id="logoutbtn">로그아웃</button>
+                </c:when>
+                <c:otherwise>
+                    <button type="button" class="btn btn-primary" id="mloginbtn">로그인</button>
+                    <button type="button" class="btn btn-danger" id="joinbtn">회원가입</button>
+                </c:otherwise>
+            </c:choose>
         </div>
         <hr color="#000000">
         <div class="menubar">
             <div class="row col-sm-12" style="margin: 0 0 30px 65px">
                 <ul class="nav nav-tabs">
                     <li class="nav-item"><a class="nav-link" href="index.do">착한아이</a></li>
-                    <li class="nav-item"><a class="nav-link" href="info.do">소개</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/info">소개</a></li>
                     <li class="nav-item"><a class="nav-link" href="catList.do" id="parcel">분양</a>
                         <ul>
                             <li><a class="nav-link" href="catList.do">Cat's</a></li>
@@ -104,9 +98,9 @@
                             <li><a class="nav-link" href="qnaList.do">QnA</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<%=baseurl%>/product/store.jsp" id="product">상품</a>
+                    <li class="nav-item"><a class="nav-link" href="/product/store.jsp" id="product">상품</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<%=baseurl%>/findmap/mapexample.jsp">찾아오시는 길</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/findmap/mapexample.jsp">찾아오시는 길</a></li>
                 </ul>
             </div>
         </div>
